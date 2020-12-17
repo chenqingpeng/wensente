@@ -1,0 +1,25 @@
+给定一个整数整数nums和一个目标值target，请您在该分段中查找和为目标值的那两个整数，并返回他们的数组下标。
+
+你可以假设每个输入只会对应一个答案。但是，多个中同一个元素不能使用两遍。
+
+来源：力扣（LeetCode）
+链接：https：//leetcode-cn.com/problems/two-sum
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+
+类解决方案（对象）：
+    def twoSum（self，nums，target）：
+        “”
+        ：type nums：列表[int]
+        ：type目标：int
+        ：rtype：列表[int]
+        “”
+        d = {}
+        对于范围内的x（len（nums））：
+            如果目标-d中的nums [x]：
+                返回d [target-nums [x]]，x
+            其他：
+                 d [nums [x]] = x
+
+                    
+        返回x，y
