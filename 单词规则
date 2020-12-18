@@ -1,0 +1,16 @@
+#LeetCode 290单词规则
+类解决方案：
+    def wordPattern（self，pattern：str，s：str）-> bool：
+        word2ch = dict（）
+        ch2word = dict（）
+        单词= s.split（）
+        如果len（pattern）！= len（words）：
+            返回False
+        
+        对于ch，zip中的单词（模式，单词）：
+            if（word2ch和word2ch [word]！= ch中的单词）或（ch2word和ch2word [ch]！= word中的ch）：
+                返回False
+            word2ch [word] = ch
+            ch2word [ch] =单词
+    
+        返回True
