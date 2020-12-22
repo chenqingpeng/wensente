@@ -1,0 +1,21 @@
+class Solution:
+    def reverseOnlyLetters(self, S: str) -> str:
+        Slist = list(S)
+        j = len(S)-1
+
+        for i in range(len(Slist)):
+            flag1 = 97 <= ord(Slist[i]) <= 122 or 65 <= ord(Slist[i]) <= 90
+
+            while j >= 0 and not (97 <= ord(S[j]) <= 122 or 65 <= ord(S[j]) <= 90): # 仅扫描一遍
+                j -= 1
+
+            if j == -1:
+                j = 0
+
+            flag2 = 97 <= ord(S[j]) <= 122 or 65 <= ord(S[j]) <= 90
+
+            if flag1 and flag2:
+                Slist[i] = S[j]
+                j -= 1
+
+        return ''.join(Slist)
