@@ -1,0 +1,24 @@
+class Solution(object):
+    def getHint(self, secret, guess):
+        """
+        :type secret: str
+        :type guess: str
+        :rtype: str
+        """
+        correct = set()
+        for i in range(len(secret)):
+            if secret[i] == guess[i]: # 找到所有猜对的数的下标
+                correct.add(i)
+        a = len(correct)
+        
+        l1 = [0 for _ in range(10)]
+        l2 = [0 for _ in range(10)]
+ 
+        for i in range(len(secret)):
+            if i not in correct: # 跳过所有猜对的数
+                l1[int(secret[i])] += 1
+                l2[int(guess[i])] += 1
+        
+        b = sum([min(l1[i], l2[i]) for i in range(10)])
+        
+        return str(a) + "A" + str(b) + "B"
