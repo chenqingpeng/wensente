@@ -1,0 +1,36 @@
+class Solution(object):
+    def findJudge(self, N, trust):
+        """
+        :type N: int
+        :type trust: List[List[int]]
+        :rtype: int
+        """
+        l = len(trust)
+        if l < N-1:
+            return -1
+        check = [[0 for i in range(N)]  for j in range(N)]
+        for pair in trust:
+            check[pair[0] - 1][pair[1] - 1] = 1
+            # print check
+        # print check
+        # for i in check:
+            # print i
+        for indexi, i in enumerate(check):
+            flag = 0
+            for indexj,j in enumerate(i):
+                if j == 1:
+                    flag = 1
+                    break
+ 
+            if flag == 0:
+                judge = indexi + 1
+                # print judge
+                flagg = 0
+                l = list()
+                for k in range(N):
+                    # print k, indexi
+                    l.append(check[k][indexi])
+                
+                if l.count(0) == 1 and l.index(0) == indexi:
+                    return judge
+        return -1
